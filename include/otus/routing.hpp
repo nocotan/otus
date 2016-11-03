@@ -11,7 +11,7 @@
 #include <string>
 
 struct OtusRouting {
-    const std::string routes;
+    const std::string route;
     const std::string method;
     const std::string action;
 };

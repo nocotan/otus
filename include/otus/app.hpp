@@ -8,10 +8,12 @@
 #define APP_HPP
 
 #include <functional>
+#include <iostream>
 #include <string>
 #include <vector>
 
 #include "routing.hpp"
+#include "utils.hpp"
 
 class Otus
 {
@@ -25,6 +27,21 @@ class Otus
 
         //! application routings
         std::vector<OtusRouting> routings;
+
+        /**
+         * @fn
+         * check initial route
+         * @param (route) application route
+         * @param (method) routing method
+         */
+        const bool is_initial_route(std::string route, std::string method) const {
+            for (OtusRouting routing : this->routings) {
+                if (routing.route == route && routing.method == method) {
+                    return false;
+                }
+            }
+            return true;
+        }
 
     public:
 
@@ -69,7 +86,13 @@ class Otus
         void route(std::string route, std::string method, T action)
         {
             OtusRouting routing = {route, method, action};
-            routings.push_back(routing);
+
+            if (is_initial_route(route, method)) {
+                routings.push_back(routing);
+            }
+            else {
+                std::cerr << "Error: redefine routing." << std::endl;
+            }
         }
 
 };
