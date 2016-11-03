@@ -14,8 +14,17 @@ int main() {
 
     // routing
     app.route("/", "GET", []{
-        return "Ok";
+        return "OK";
     }());
+
+    app.route("/", "POST", []{
+        return "OK";
+    }());
+
+    // redefine
+    //app.route("/", "GET", []{
+    //    return "NG";
+    //}());
 
     return 0;
 }
