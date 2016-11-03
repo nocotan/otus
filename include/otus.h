@@ -8,5 +8,8 @@
 #define OTUS_H
 
 #include "otus/app.hpp"
+#include "otus/routing.hpp"
+#include "otus/server.hpp"
+#include "otus/utils.hpp"
 
 #endif
