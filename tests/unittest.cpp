@@ -2,7 +2,7 @@
 #include <iostream>
 #include <boost/lexical_cast.hpp>
 #include "../include/otus/app.hpp"
-#include "../include/otus/server/server.hpp"
+#include "../include/otus/server.hpp"
 using namespace std;
 
 int main() {
@@ -23,9 +23,16 @@ int main() {
         return "OK";
     }());
 
-    size_t num_threads = boost::lexical_cast<std::size_t>(2);
-    http::server3::server s("127.0.0.1", "9000", ".", num_threads);
-        s.run();
+    try {
+        Handler handler;
+        Handler::server::options options(handler);
+        Handler::server server_(options.address("localhost").port("9000"));
+        server_.run();
+    }
+    catch (exception& e) {
+        cout << e.what() << endl;
+    }
+
 
     return 0;
 }
