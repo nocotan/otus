@@ -3,6 +3,7 @@
 #include <boost/lexical_cast.hpp>
 #include "../include/otus/app.hpp"
 #include "../include/otus/server.hpp"
+#include "../include/otus/render.hpp"
 using namespace std;
 
 int main() {
@@ -23,7 +24,10 @@ int main() {
         return "OK";
     }());
 
-    app.run("localhost", "9000");
+    //app.run("localhost", "9000");
+
+    Render render = Render();
+    cout << render.read_template("test.html") << endl;
 
     return 0;
 }
