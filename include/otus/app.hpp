@@ -105,11 +105,12 @@ class Otus
         void run(std::string address, std::string port)
         {
             try {
-                std::cout << "server is running: http://" << address << ":" << port << std::endl;
-
                 Handler handler;
                 Handler::server::options options(handler);
                 Handler::server server_(options.address(address).port(port));
+
+                std::cout << "server is running: http://" << address << ":" << port << std::endl;
+
                 server_.run();
             }
             catch (std::exception& e) {

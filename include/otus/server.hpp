@@ -12,7 +12,6 @@
 #include <boost/network/include/http/server.hpp>
 
 
-
 struct Handler {
     typedef boost::network::http::server<Handler> server;
 
@@ -23,9 +22,14 @@ struct Handler {
         server_string ip = http::source(request);
         server_string path = destination(request);
 
+        server_string method = request.method;
+
         std::ostringstream data;
 
         data << "HTTP Server is running!" << "<br/>";
+
+        std::cout << "Your IP address: " << ip << std::endl;
+        std::cout << method << " " << path << std::endl;
 
         response = server::response::stock_reply(
                 server::response::ok, data.str()
