@@ -23,16 +23,7 @@ int main() {
         return "OK";
     }());
 
-    try {
-        Handler handler;
-        Handler::server::options options(handler);
-        Handler::server server_(options.address("localhost").port("9000"));
-        server_.run();
-    }
-    catch (exception& e) {
-        cout << e.what() << endl;
-    }
-
+    app.run("localhost", "9000");
 
     return 0;
 }

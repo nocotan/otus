@@ -1,6 +1,21 @@
 /**
  * @file otus.h
  * @brief integration all files.
+ *
+ * otus is the micro web application framework.
+ * @par Usage
+ * - Initialize
+ *     - Otus app = Otus();
+ * - set static & template folder (optional)
+ *     - app.set_static_folder("static")
+ *     - app.set_template_folder("template")
+ * - Routing
+ *     - app.route("/", "GET", []{
+ *           return "OK";
+ *       }());
+ * - Run app
+ *     - app.run("localhost", "9000");
+ *
  * @author nocotan
  * @date 2016/11/4
  */

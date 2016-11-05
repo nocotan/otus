@@ -12,7 +12,9 @@
 #include <string>
 #include <vector>
 
+#include "fields.hpp"
 #include "routing.hpp"
+#include "server.hpp"
 #include "utils.hpp"
 
 class Otus
@@ -92,6 +94,26 @@ class Otus
             }
             else {
                 std::cerr << "Error: redefine routing." << std::endl;
+            }
+        }
+
+        /**
+         * @fn
+         * @param (address) server address
+         * @param (port) port number
+         */
+        void run(std::string address, std::string port)
+        {
+            try {
+                std::cout << "server is running: http://" << address << ":" << port << std::endl;
+
+                Handler handler;
+                Handler::server::options options(handler);
+                Handler::server server_(options.address(address).port(port));
+                server_.run();
+            }
+            catch (std::exception& e) {
+                std::cout << e.what() << std::endl;
             }
         }
 

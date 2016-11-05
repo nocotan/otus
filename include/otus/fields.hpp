@@ -7,6 +7,7 @@
 #ifndef FIELDS_HPP
 #define FIELDS_HPP
 
+#include <limits.h>
 #include <string>
 
 namespace otus_field {
@@ -14,11 +15,11 @@ namespace otus_field {
 
         private:
 
-            //! Null flag
-            bool null_flag = false;
+            //! empty flag
+            bool empty_flag = false;
 
             //! input field name
-            std::string fieldname = null;
+            std::string fieldname = "";
 
         public:
 
@@ -30,17 +31,17 @@ namespace otus_field {
 
             /**
              * @fn
-             * Null flag setter
+             * empty flag setter
              */
-            void set_null_flag(bool null_flag) {
-                this->null_flag = null_flag;
+            void set_empty_flag(bool empty_flag) {
+                this->empty_flag = empty_flag;
             }
 
             /**
              * @fn fieldname setter
              */
             void set_fieldname(std::string fieldname) {
-                this->filename = fieldname;
+                this->fieldname = fieldname;
             }
 
             /**
@@ -56,13 +57,13 @@ namespace otus_field {
         private:
 
             //! number minimum size
-            int min_value = 0;
+            int min_value = std::numeric_limits<int>::min();
 
             //! number max size
-            int max_value = 65535;
+            int max_value = std::numeric_limits<int>::max();
 
             //! field value
-            std::string fieldvalue = nullptr;
+            std::string fieldvalue = "";
 
         public:
 
@@ -90,7 +91,7 @@ namespace otus_field {
              * @param (fieldvalue) fieldvalue
              */
             void set_fieldvalue(std::string fieldvalue) {
-                if (fieldvalue != nullptr) {
+                if (fieldvalue != "") {
                     this->fieldvalue = fieldvalue;
                 }
             };
@@ -101,7 +102,7 @@ namespace otus_field {
              * @param (fieldvalue) field value
              */
             void set_fieldvalue(int fieldvalue) {
-                this->fieldvalue = to_string(fieldvalue);
+                this->fieldvalue = std::to_string(fieldvalue);
             }
 
             /**
@@ -116,7 +117,7 @@ namespace otus_field {
              * @fn
              * fieldvalue getter
              */
-            const int get_fieldvalue_as_string() const {
+            const std::string get_fieldvalue_as_string() const {
                 return this->fieldvalue;
             }
 
