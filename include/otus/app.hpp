@@ -14,8 +14,12 @@
 
 #include "fields.hpp"
 #include "routing.hpp"
+#include "render.hpp"
 #include "server.hpp"
 #include "utils.hpp"
+
+std::string TEMPLATE_FOLDER_PATH;
+
 
 class Otus
 {
@@ -55,6 +59,7 @@ class Otus
             : static_folder("static"),
               template_folder("templates")
         {
+            TEMPLATE_FOLDER_PATH = "templates";
         };
 
         /**
@@ -75,6 +80,7 @@ class Otus
         void set_template_folder(std::string template_folder)
         {
             this->template_folder = template_folder;
+            TEMPLATE_FOLDER_PATH = template_folder;
         }
 
         /**
@@ -119,5 +125,15 @@ class Otus
         }
 
 };
+
+
+/**
+ * @fn
+ * @param (templatefile) template file
+ */
+std::string render_template(std::string templatefile) {
+    std::string template_path = TEMPLATE_FOLDER_PATH + "/" + templatefile;
+    return read_template(template_path);
+}
 
 #endif

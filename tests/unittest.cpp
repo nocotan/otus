@@ -17,17 +17,14 @@ int main() {
 
     // routing
     app.route("/", "GET", []{
-        return "OK";
+        return render_template("test.html");
     }());
 
     app.route("/", "POST", []{
         return "OK";
     }());
 
-    //app.run("localhost", "9000");
-
-    Render render = Render();
-    cout << render.read_template("test.html") << endl;
+    app.run("localhost", "9000");
 
     return 0;
 }
