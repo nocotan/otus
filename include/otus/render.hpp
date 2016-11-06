@@ -12,19 +12,21 @@
 #include <string>
 #include <iterator>
 
-std::string read_template(std::string filepath) {
-    std::ifstream ifs(filepath);
-    if (ifs.fail()) {
-        std::cerr << "Failed to read template" << std::endl;
+namespace ots {
+
+    std::string read_template(std::string filepath) {
+        std::ifstream ifs(filepath);
+        if (ifs.fail()) {
+            std::cerr << "Failed to read template" << std::endl;
+        }
+
+        std::istreambuf_iterator<char> it(ifs);
+        std::istreambuf_iterator<char> last;
+        std::string templatefile(it, last);
+
+        return templatefile;
     }
 
-    std::istreambuf_iterator<char> it(ifs);
-    std::istreambuf_iterator<char> last;
-    std::string templatefile(it, last);
-
-    return templatefile;
 }
-
-
 
 #endif

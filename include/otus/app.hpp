@@ -21,119 +21,121 @@
 std::string TEMPLATE_FOLDER_PATH;
 
 
-class Otus
-{
-    private:
+namespace ots {
+    class otus
+    {
+        private:
 
-        //! static folder path
-        std::string static_folder;
+            //! static folder path
+            std::string static_folder;
 
-        //! template folder path
-        std::string template_folder;
+            //! template folder path
+            std::string template_folder;
 
-        //! application routings
-        std::vector<OtusRouting> routings;
+            //! application routings
+            std::vector<otusRouting> routings;
 
-        /**
-         * @fn
-         * check initial route
-         * @param (route) application route
-         * @param (method) routing method
-         */
-        const bool is_initial_route(std::string route, std::string method) const {
-            for (OtusRouting routing : this->routings) {
-                if (routing.route == route && routing.method == method) {
-                    return false;
+            /**
+             * @fn
+             * check initial route
+             * @param (route) application route
+             * @param (method) routing method
+             */
+            const bool is_initial_route(std::string route, std::string method) const {
+                for (otusRouting routing : this->routings) {
+                    if (routing.route == route && routing.method == method) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+        public:
+
+            /**
+             * @fn
+             * Constructor
+             */
+            otus()
+                : static_folder("static"),
+                  template_folder("templates")
+            {
+                TEMPLATE_FOLDER_PATH = "templates";
+            };
+
+            /**
+             * @fn
+             * static folder setter
+             * @param (static_folder) static folder path
+             */
+            void set_static_folder(std::string static_folder)
+            {
+                this->static_folder = static_folder;
+            };
+
+            /**
+             * @fn
+             * template folder setter
+             * @param (template_folder) template folder path
+             */
+            void set_template_folder(std::string template_folder)
+            {
+                this->template_folder = template_folder;
+                TEMPLATE_FOLDER_PATH = template_folder;
+            }
+
+            /**
+             * @fn
+             * routing
+             * @param (route) application routing
+             * @param (method) routing method
+             * @param (action) routing action
+             */
+            template<class T>
+            void route(std::string route, std::string method, T action)
+            {
+                otusRouting routing = {route, method, action};
+
+                if (is_initial_route(route, method)) {
+                    routings.push_back(routing);
+                }
+                else {
+                    std::cerr << "Error: redefine routing." << std::endl;
                 }
             }
-            return true;
-        }
 
-    public:
+            /**
+             * @fn
+             * @param (address) server address
+             * @param (port) port number
+             */
+            void run(std::string address, std::string port)
+            {
+                try {
+                    std::cout << "server is running: http://" << address << ":" << port << std::endl;
 
-        /**
-         * @fn
-         * Constructor
-         */
-        Otus()
-            : static_folder("static"),
-              template_folder("templates")
-        {
-            TEMPLATE_FOLDER_PATH = "templates";
-        };
+                    handler handler{routings};
 
-        /**
-         * @fn
-         * static folder setter
-         * @param (static_folder) static folder path
-         */
-        void set_static_folder(std::string static_folder)
-        {
-            this->static_folder = static_folder;
-        };
-
-        /**
-         * @fn
-         * template folder setter
-         * @param (template_folder) template folder path
-         */
-        void set_template_folder(std::string template_folder)
-        {
-            this->template_folder = template_folder;
-            TEMPLATE_FOLDER_PATH = template_folder;
-        }
-
-        /**
-         * @fn
-         * routing
-         * @param (route) application routing
-         * @param (method) routing method
-         * @param (action) routing action
-         */
-        template<class T>
-        void route(std::string route, std::string method, T action)
-        {
-            OtusRouting routing = {route, method, action};
-
-            if (is_initial_route(route, method)) {
-                routings.push_back(routing);
+                    handler::server::options options(handler);
+                    handler::server server_(options.address(address).port(port));
+                    server_.run();
+                }
+                catch (std::exception& e) {
+                    std::cout << e.what() << std::endl;
+                }
             }
-            else {
-                std::cerr << "Error: redefine routing." << std::endl;
-            }
-        }
 
-        /**
-         * @fn
-         * @param (address) server address
-         * @param (port) port number
-         */
-        void run(std::string address, std::string port)
-        {
-            try {
-                std::cout << "server is running: http://" << address << ":" << port << std::endl;
-
-                Handler handler{routings};
-
-                Handler::server::options options(handler);
-                Handler::server server_(options.address(address).port(port));
-                server_.run();
-            }
-            catch (std::exception& e) {
-                std::cout << e.what() << std::endl;
-            }
-        }
-
-};
+    };
 
 
-/**
- * @fn
- * @param (templatefile) template file
- */
-std::string render_template(std::string templatefile) {
-    std::string template_path = TEMPLATE_FOLDER_PATH + "/" + templatefile;
-    return read_template(template_path);
+    /**
+     * @fn
+     * @param (templatefile) template file
+     */
+    std::string render_template(std::string templatefile) {
+        std::string template_path = TEMPLATE_FOLDER_PATH + "/" + templatefile;
+        return read_template(template_path);
+    }
 }
 
 #endif

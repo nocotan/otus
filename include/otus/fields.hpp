@@ -10,8 +10,9 @@
 #include <limits.h>
 #include <string>
 
-namespace otus_field {
-    class ExtAbstractField {
+namespace ots {
+
+    class abstractField {
 
         private:
 
@@ -27,7 +28,7 @@ namespace otus_field {
              * @fn
              * Constructor
              */
-            ExtAbstractField() { }
+            abstractField() { }
 
             /**
              * @fn
@@ -52,7 +53,7 @@ namespace otus_field {
     };
 
 
-    class ExtNumberField : public ExtAbstractField {
+    class numberField : public abstractField {
 
         private:
 
@@ -72,7 +73,7 @@ namespace otus_field {
              * Constructor
              * @param (fieldvalue) field value
              */
-            ExtNumberField(std::string fieldvalue) {
+            numberField(std::string fieldvalue) {
                 set_fieldvalue(fieldvalue);
             }
 
@@ -81,7 +82,7 @@ namespace otus_field {
              * Constructor
              * @param (fieldvalue) field value
              */
-            ExtNumberField(int fieldvalue) {
+            numberField(int fieldvalue) {
                 set_fieldvalue(fieldvalue);
             }
 

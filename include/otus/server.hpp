@@ -14,51 +14,54 @@
 
 #include "routing.hpp"
 
+namespace ots {
 
-struct Handler {
-    typedef boost::network::http::server<Handler> server;
-    typedef server::string_type server_string;
+    struct handler {
+        typedef boost::network::http::server<handler> server;
+        typedef server::string_type server_string;
 
-    std::vector<OtusRouting> routings;
+        std::vector<otusRouting> routings;
 
-    void operator()(server::request const &request, server::response &response) {
-        namespace http = boost::network::http;
+        void operator()(server::request const &request, server::response &response) {
+            namespace http = boost::network::http;
 
-        server_string ip = http::source(request);
-        server_string path = destination(request);
+            server_string ip = http::source(request);
+            server_string path = destination(request);
 
-        server_string method = request.method;
+            server_string method = request.method;
 
-        std::ostringstream data;
+            std::ostringstream data;
 
-        int current_number = routing_number(path, method);
-        if (current_number!=-1) {
-            data << routings[current_number].action << "<br/>";
-        }
-        else {
-            data << "Routing Error " << method << " " << path;
-        }
-
-        std::cout << method << " " << path << std::endl;
-
-        response = server::response::stock_reply(
-                server::response::ok, data.str()
-        );
-    }
-
-    void log(...) { }
-
-    private:
-        const int routing_number(server_string path, server_string method) {
-            int counter = 0;
-            for (OtusRouting routing : routings) {
-                if (routing.route == path && routing.method == method) {
-                    return counter;
-                }
-                counter++;
+            int current_number = routing_number(path, method);
+            if (current_number!=-1) {
+                data << routings[current_number].action << "<br/>";
             }
-            return -1;
+            else {
+                data << "Routing Error " << method << " " << path;
+            }
+
+            std::cout << method << " " << path << std::endl;
+
+            response = server::response::stock_reply(
+                    server::response::ok, data.str()
+            );
         }
-};
+
+        void log(...) { }
+
+        private:
+            const int routing_number(server_string path, server_string method) {
+                int counter = 0;
+                for (otusRouting routing : routings) {
+                    if (routing.route == path && routing.method == method) {
+                        return counter;
+                    }
+                    counter++;
+                }
+                return -1;
+            }
+    };
+
+}
 
 #endif

@@ -9,8 +9,12 @@
 
 #include <string>
 
-class Utils
-{
-};
+namespace otus {
+
+    class utils
+    {
+    };
+
+}
 
 #endif

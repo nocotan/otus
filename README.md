@@ -20,7 +20,7 @@ g++ -std=c++11 test.cpp -I<path to cpp-netlib> -L<path to cpp-netlib/libs/networ
 #include "otus.h"
 
 int main() {
-    Otus app = Otus();
+    ots::otus app = ots::otus();
     app.route("/", "GET", []{
         return "Hello, World!";
     }());
@@ -38,9 +38,9 @@ int main() {
 #include "otus.h"
 
 int main() {
-    Otus app = Otus();
+    ots::otus app = ots::otus();
     app.route("/", "GET", []{
-        return render_template("test.html");
+        return ots::render_template("test.html");
     }());
 
     return 0;

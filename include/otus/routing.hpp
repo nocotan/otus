@@ -10,10 +10,15 @@
 #include <functional>
 #include <string>
 
-struct OtusRouting {
-    const std::string route;
-    const std::string method;
-    const std::string action;
-};
+
+namespace ots {
+
+    struct otusRouting {
+        const std::string route;
+        const std::string method;
+        const std::string action;
+    };
+
+}
 
 #endif
