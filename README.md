@@ -1,5 +1,5 @@
 # otus
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) https://img.shields.io/github/issues/nocotan/otus.svg  
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![GitHub issues](https://img.shields.io/github/issues/nocotan/otus.svg)](https://github.com/nocotan/otus/issues)  
 A microframewor for C++
 
 ## Dependencies
