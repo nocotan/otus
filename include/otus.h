@@ -24,6 +24,7 @@
 
 #include "otus/app.hpp"
 #include "otus/fields.hpp"
+#include "otus/render.hpp"
 #include "otus/routing.hpp"
 #include "otus/server.hpp"
 #include "otus/utils.hpp"
