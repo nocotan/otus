@@ -24,7 +24,7 @@ int main() {
     app.route("/", "GET", []{
         return "Hello, World!";
     }());
-    
+
     app.run("localhost", "8080");
 
     return 0;
@@ -44,7 +44,7 @@ int main() {
     app.route("/", "GET", []{
         return ots::render_template("test.html");
     }());
-    
+
     app.run("localhost", "8080");
 
     return 0;
