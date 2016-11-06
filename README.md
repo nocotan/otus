@@ -1,5 +1,5 @@
 # otus
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![GitHub issues](https://img.shields.io/github/issues/nocotan/otus.svg)](https://github.com/nocotan/otus/issues) [![GitHub forks](https://img.shields.io/github/forks/nocotan/otus.svg)](https://github.com/nocotan/otus/network)  
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![GitHub issues](https://img.shields.io/github/issues/nocotan/otus.svg)](https://github.com/nocotan/otus/issues) [![GitHub forks](https://img.shields.io/github/forks/nocotan/otus.svg)](https://github.com/nocotan/otus/network) [![GitHub stars](https://img.shields.io/github/stars/nocotan/otus.svg)](https://github.com/nocotan/otus/stargazers) [![Twitter](https://img.shields.io/twitter/url/https/github.com/nocotan/otus.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)  
 A microframewor for C++
 
 ## Dependencies
