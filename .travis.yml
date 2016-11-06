@@ -1,0 +1,5 @@
+language: cpp
+script:
+    - g++ --version
+    - g++ -std=c++11 tests/unittest.cpp -I/home/noco/libs/cpp-netlib -L/home/noco/libs/cpp-netlib/libs/network/src -lpthread -lboost_system -lboost_thread -lcppnetlib-uri -lcppnetlib-client-connections -lssl -lcrypto && ./a.out
+
