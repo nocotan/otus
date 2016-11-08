@@ -21,9 +21,9 @@ g++ -std=c++11 test.cpp -I<path to cpp-netlib> -L<path to cpp-netlib/libs/networ
 
 int main() {
     ots::otus app = ots::otus();
-    app.route("/", "GET", []{
+    app.route("/", "GET", [](string request){
         return "Hello, World!";
-    }());
+    });
 
     app.run("localhost", "8080");
 
@@ -41,9 +41,9 @@ int main() {
 
 int main() {
     ots::otus app = ots::otus();
-    app.route("/", "GET", []{
+    app.route("/", "GET", [](string request){
         return ots::render_template("test.html");
-    }());
+    });
 
     app.run("localhost", "8080");
 
