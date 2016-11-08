@@ -17,12 +17,23 @@ int main() {
 
     // routing
     app.route("/", "GET", [](ots::request req)->string{
-        std::cout << req.method << std::endl;
+        cout << req.method << endl;
+        cout << req.path << endl;
+        cout << req.source << endl;
+        cout << req.destination << endl;
+        cout << req.body << endl;
+        for (auto header : req.headers) {
+            cout << header.name << ":" << header.value;
+        }
         return ots::render_template("test.html");
     });
 
     app.route("/", "POST", [](ots::request req)->string{
-        std::cout << req.method << std::endl;
+        cout << req.method << endl;
+        cout << req.path << endl;
+        cout << req.source << endl;
+        cout << req.destination << endl;
+        cout << req.body << endl;
         return "OK";
     });
 
