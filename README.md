@@ -34,7 +34,7 @@ int main() {
 ### Render template
 
 - ex. template file path: templates/test.html
-- otus search template file at "templates" directory at default.
+- otus search template file for "templates" directory at default.
 
 ```
 #include "otus.h"
