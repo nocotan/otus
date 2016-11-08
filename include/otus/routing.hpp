@@ -13,10 +13,14 @@
 
 namespace ots {
 
+    struct request {
+        const std::string method;
+    };
+
     struct otusRouting {
         const std::string route;
         const std::string method;
-        const std::function<std::string(std::string)> action;
+        const std::function<std::string(request)> action;
     };
 
 }

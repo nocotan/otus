@@ -16,17 +16,16 @@ int main() {
     app.set_template_folder("templates");
 
     // routing
-    app.route("/", "GET", [](string request)->string{
+    app.route("/", "GET", [](ots::request req)->string{
+        std::cout << req.method << std::endl;
         return ots::render_template("test.html");
     });
 
-    app.route("/", "POST", [](string request)->string{
+    app.route("/", "POST", [](ots::request req)->string{
+        std::cout << req.method << std::endl;
         return "OK";
     });
 
-    app.route("/test", "GET", [](string request)->string{
-        return "test";
-    });
 
     app.run("localhost", "9000");
 

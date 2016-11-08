@@ -22,25 +22,29 @@ namespace ots {
 
         std::vector<otusRouting> routings;
 
-        void operator()(server::request const &request, server::response &response) {
+        void operator()(server::request const &_request, server::response &response) {
             namespace http = boost::network::http;
 
-            server_string ip = http::source(request);
-            server_string path = destination(request);
+            server_string ip = http::source(_request);
+            server_string path = destination(_request);
+            server_string _method = _request.method;
 
-            server_string method = request.method;
+            std::ostringstream method;
+            method << _method;
+
+            request req{method.str()};
 
             std::ostringstream data;
 
-            int current_number = routing_number(path, method);
+            int current_number = routing_number(path, _method);
             if (current_number!=-1) {
-                data << routings[current_number].action("test") << "<br/>";
+                data << routings[current_number].action(req) << "<br/>";
             }
             else {
-                data << "Routing Error " << method << " " << path;
+                data << "Routing Error " << _method << " " << path;
             }
 
-            std::cout << method << " " << path << std::endl;
+            std::cout << _method << " " << path << std::endl;
 
             response = server::response::stock_reply(
                     server::response::ok, data.str()
