@@ -16,7 +16,7 @@ namespace ots {
     struct otusRouting {
         const std::string route;
         const std::string method;
-        const std::string action;
+        const std::function<std::string(std::string)> action;
     };
 
 }

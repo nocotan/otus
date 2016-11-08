@@ -16,13 +16,17 @@ int main() {
     app.set_template_folder("templates");
 
     // routing
-    app.route("/", "GET", []{
+    app.route("/", "GET", [](string request)->string{
         return ots::render_template("test.html");
-    }());
+    });
 
-    app.route("/", "POST", []{
+    app.route("/", "POST", [](string request)->string{
         return "OK";
-    }());
+    });
+
+    app.route("/test", "GET", [](string request)->string{
+        return "test";
+    });
 
     app.run("localhost", "9000");
 

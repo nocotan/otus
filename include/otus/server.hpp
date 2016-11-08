@@ -34,7 +34,7 @@ namespace ots {
 
             int current_number = routing_number(path, method);
             if (current_number!=-1) {
-                data << routings[current_number].action << "<br/>";
+                data << routings[current_number].action("test") << "<br/>";
             }
             else {
                 data << "Routing Error " << method << " " << path;

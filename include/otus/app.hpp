@@ -91,7 +91,7 @@ namespace ots {
              * @param (method) routing method
              * @param (action) routing action
              */
-            template<class T>
+            template <class T>
             void route(std::string route, std::string method, T action)
             {
                 otusRouting routing = {route, method, action};
