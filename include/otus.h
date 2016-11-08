@@ -10,11 +10,13 @@
  *     - app.set_static_folder("static")
  *     - app.set_template_folder("template")
  * - Routing
- *     - app.route("/", "GET", []{
+ *     - app.route("/", "GET", [](string request){
  *           return "OK";
- *       }());
+ *       });
  * - Run app
  *     - app.run("localhost", "9000");
+ *
+ * @note default template directory: templates
  *
  * @author nocotan
  * @date 2016/11/4
