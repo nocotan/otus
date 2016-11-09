@@ -19,7 +19,7 @@ g++ -std=c++11 test.cpp -I<path to cpp-netlib> -L<path to cpp-netlib/libs/networ
 
 ### smallest otus app
 
-```
+```c++
 #include "otus.h"
 
 int main() {
@@ -39,7 +39,7 @@ int main() {
 - ex. template file path: templates/test.html
 - otus search template file for "templates" directory at default.
 
-```
+```c++
 #include "otus.h"
 
 int main() {
@@ -56,7 +56,7 @@ int main() {
 
 ### User request info
 
-```
+```c++
 #include "otus.h"
 using namespace std;
 
