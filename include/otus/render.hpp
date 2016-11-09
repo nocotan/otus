@@ -14,6 +14,10 @@
 
 namespace ots {
 
+    /**
+     * @fn
+     * read template file as string
+     */
     std::string read_template(std::string filepath) {
         std::ifstream ifs(filepath);
         if (ifs.fail()) {

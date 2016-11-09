@@ -16,6 +16,10 @@
 
 namespace ots {
 
+    /**
+     * @struct handler
+     * @brief request handler
+     */
     struct handler {
         typedef boost::network::http::server<handler> server;
         typedef server::string_type server_string;

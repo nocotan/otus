@@ -13,11 +13,19 @@
 
 namespace ots {
 
+    /**
+     * @struct header
+     * @brief header
+     */
     struct header {
         const std::string name;
         const std::string value;
     };
 
+    /**
+     * @struct request
+     * @brief request
+     */
     struct request {
         const std::string method;
         const std::string path;
@@ -27,6 +35,10 @@ namespace ots {
         const std::vector<header> headers;
     };
 
+    /**
+     * @struct otusRouting
+     * @brief routing
+     */
     struct otusRouting {
         const std::string route;
         const std::string method;

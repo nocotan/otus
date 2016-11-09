@@ -11,6 +11,10 @@
 
 namespace otus {
 
+    /**
+     * @class utils
+     * @brief utils
+     */
     class utils
     {
     };

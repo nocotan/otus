@@ -22,6 +22,11 @@ std::string TEMPLATE_FOLDER_PATH;
 
 
 namespace ots {
+
+    /**
+     * @class otus
+     * @brief main class
+     */
     class otus
     {
         private:

@@ -12,6 +12,10 @@
 
 namespace ots {
 
+    /**
+     * @class
+     * @brief abstract field class
+     */
     class abstractField {
 
         private:
@@ -53,6 +57,10 @@ namespace ots {
     };
 
 
+    /**
+     * @class numberfield
+     * @brief number field class
+     */
     class numberField : public abstractField {
 
         private:
