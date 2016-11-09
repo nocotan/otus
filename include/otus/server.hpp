@@ -20,8 +20,15 @@ namespace ots {
         typedef boost::network::http::server<handler> server;
         typedef server::string_type server_string;
 
+        //! All routings of application
         std::vector<otusRouting> routings;
 
+        /**
+         * @fn
+         * operator () for handler
+         * @param (_request) boost::network::http::server<handler> request
+         * @param (&response) boost::network::http::server<handler>::response &response
+         */
         void operator()(server::request const &_request, server::response &response) {
             namespace http = boost::network::http;
 
@@ -81,6 +88,13 @@ namespace ots {
         void log(...) { }
 
         private:
+
+            /**
+             * @fn
+             * @return number of object routing
+             * @param (_path) routing path
+             * @param (method) HTTP method
+             */
             const int routing_number(server_string _path, server_string method) {
                 int counter = 0;
                 for (otusRouting routing : routings) {
