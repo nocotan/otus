@@ -16,26 +16,26 @@ int main() {
     app.set_template_folder("templates");
 
     // routing
-    app.route("/", "GET", [](ots::request req)->string{
-        cout << req.method << endl;
-        cout << req.path << endl;
-        cout << req.source << endl;
-        cout << req.destination << endl;
-        cout << req.body << endl;
-        for (auto header : req.headers) {
-            cout << header.name << ":" << header.value;
-        }
-        return ots::render_template("test.html");
-    });
+    //app.route("/", "GET", [](ots::request req)->string{
+    //    cout << req.method << endl;
+    //    cout << req.path << endl;
+    //    cout << req.source << endl;
+    //    cout << req.destination << endl;
+    //    cout << req.body << endl;
+    //    for (auto header : req.headers) {
+    //        cout << header.name << ":" << header.value MM endl;
+    //    }
+    //    return ots::render_template("test.html");
+    //});
 
-    app.route("/", "POST", [](ots::request req)->string{
-        cout << req.method << endl;
-        cout << req.path << endl;
-        cout << req.source << endl;
-        cout << req.destination << endl;
-        cout << req.body << endl;
-        return "OK";
-    });
+    //app.route("/", "POST", [](ots::request req)->string{
+    //    cout << req.method << endl;
+    //    cout << req.path << endl;
+    //    cout << req.source << endl;
+    //    cout << req.destination << endl;
+    //    cout << req.body << endl;
+    //    return "OK";
+    //});
 
 
     app.run("localhost", "9000");

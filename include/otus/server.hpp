@@ -70,12 +70,17 @@ namespace ots {
 
             std::ostringstream data;
 
-            int current_number = routing_number(_path, _method);
-            if (current_number!=-1) {
-                data << routings[current_number].action(req) << "<br/>";
+            if (routings.size()!=0) {
+                int current_number = routing_number(_path, _method);
+                if (current_number!=-1) {
+                    data << routings[current_number].action(req) << "<br/>";
+                }
+                else {
+                    data << "Routing Error " << _method << " " << _path;
+                }
             }
             else {
-                data << "Routing Error " << _method << " " << _path;
+                render_initial_page(data);
             }
 
             std::cout << _method << " " << _path << std::endl;
@@ -104,6 +109,34 @@ namespace ots {
                     counter++;
                 }
                 return -1;
+            }
+
+            /**
+             * @fn
+             * show initial page
+             * @param (data) ostringstream
+             */
+            void render_initial_page(std::ostringstream &data) {
+                const std::string indexpage =
+                    "<html><head>"
+                    "<title>Index</title>"
+                    "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>"
+                    "</head><body>"
+                    "<div class='container'>"
+                    "<div class='jumbotron'>"
+                    "<h1>Welcome to otus!</h1>"
+                    "Well, let as get the ball rolling!"
+                    "</div>"
+                    "<div>"
+                    "<h2>Getting started</h2>"
+                    "Here is how to use it!"
+                    "<ul>"
+                    "<li><h3>1. Set up route</h3></li>"
+                    "<li><h3>2. Select template folder and create file</h3></li>"
+                    "</ul></div>"
+                    "</div></body></html>";
+
+                data << indexpage;
             }
     };
 
