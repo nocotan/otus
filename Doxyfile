@@ -1,0 +1,3 @@
+INPUT = "./include"
+RECURSIVE = YES
+OUTPUT_DIRECTORY = "./Doxygen"
