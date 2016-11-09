@@ -9,6 +9,8 @@
 
 #include <functional>
 #include <iostream>
+#include <iterator>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -18,11 +20,11 @@
 #include "server.hpp"
 #include "utils.hpp"
 
-std::string TEMPLATE_FOLDER_PATH;
-std::string STATIC_FOLDER_PATH;
-
 
 namespace ots {
+
+    std::string TEMPLATE_FOLDER_PATH;
+    std::string STATIC_FOLDER_PATH;
 
     /**
      * @class otus

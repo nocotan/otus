@@ -122,10 +122,12 @@ namespace ots {
              */
             void render_initial_page(std::ostringstream &data) {
                 const std::string indexpage =
-                    "<html><head>"
+                    "<html>"
+                    "<head>"
                     "<title>Index</title>"
                     "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>"
-                    "</head><body>"
+                    "</head>"
+                    "<body>"
                     "<div class='container'>"
                     "<div class='jumbotron' style='background-color: #AFEEEE'>"
                     "<h1>Welcome to otus!</h1>"
@@ -137,8 +139,11 @@ namespace ots {
                     "<ul>"
                     "<li><h3>1. Set up route</h3></li>"
                     "<li><h3>2. Select template folder and create file</h3></li>"
-                    "</ul></div>"
-                    "</div></body></html>";
+                    "</ul>"
+                    "</div>"
+                    "</div>"
+                    "</body>"
+                    "</html>";
 
                 data << indexpage;
             }

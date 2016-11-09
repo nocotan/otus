@@ -58,6 +58,52 @@ namespace ots {
 
 
     /**
+     * @class stringfield
+     * @brief string field class
+     */
+    class stringField : public abstractField {
+
+        private:
+
+            //! field value
+            std::string fieldvalue = "";
+
+            //! empty flag
+            bool is_empty_value = false;
+
+        public:
+
+            /**
+             * @fn
+             * Constructor
+             * @param (fieldvalue) field value
+             */
+            stringField(std::string fieldvalue) {
+                set_fieldvalue(fieldvalue);
+            }
+
+            /**
+             * @fn
+             * fieldvalue setter
+             * @param (fieldvalue) fieldvalue
+             */
+            void set_fieldvalue(std::string fieldvalue) {
+                if (fieldvalue != "") {
+                    this->fieldvalue = fieldvalue;
+                }
+            };
+
+            /**
+             * @fn
+             * fieldvalue getter
+             */
+            const int get_fieldvalue() const {
+                return this->fieldvalue;
+            }
+    };
+
+
+    /**
      * @class numberfield
      * @brief number field class
      */

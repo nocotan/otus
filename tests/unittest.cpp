@@ -23,19 +23,23 @@ int main() {
     //    cout << req.destination << endl;
     //    cout << req.body << endl;
     //    for (auto header : req.headers) {
-    //        cout << header.name << ":" << header.value MM endl;
+    //        cout << header.name << ":" << header.value << endl;
     //    }
     //    return ots::render_template("test.html");
     //});
 
-    //app.route("/", "POST", [](ots::request req)->string{
-    //    cout << req.method << endl;
-    //    cout << req.path << endl;
-    //    cout << req.source << endl;
-    //    cout << req.destination << endl;
-    //    cout << req.body << endl;
-    //    return "OK";
-    //});
+    app.route("/", "POST", [](ots::request req)->string{
+        cout << req.method << endl;
+        cout << req.path << endl;
+        cout << req.source << endl;
+        cout << req.destination << endl;
+        cout << req.body << endl;
+        return "OK";
+    });
+
+    app.route("<test>", "GET", [](ots::request req){
+        return "Hello";
+    });
 
 
     app.run("localhost", "9000");
