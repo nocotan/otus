@@ -19,6 +19,7 @@
 #include "utils.hpp"
 
 std::string TEMPLATE_FOLDER_PATH;
+std::string STATIC_FOLDER_PATH;
 
 
 namespace ots {
@@ -66,6 +67,7 @@ namespace ots {
                   template_folder("templates")
             {
                 TEMPLATE_FOLDER_PATH = "templates";
+                STATIC_FOLDER_PATH = "static";
             };
 
             /**
@@ -76,6 +78,7 @@ namespace ots {
             void set_static_folder(std::string static_folder)
             {
                 this->static_folder = static_folder;
+                STATIC_FOLDER_PATH = static_folder;
             };
 
             /**
