@@ -3,7 +3,7 @@
 
 ##### A microframewor for C++
 
-![WelcomePage](https://github.com/nocotan/otus/blob/master/Screenshot%202016-11-09%20at%2010.17.41.png)
+![WelcomePage](https://github.com/nocotan/otus/blob/master/images/Screenshot%202016-11-09%20at%2010.35.22.png)
 
 ## Dependencies
 - Boost
