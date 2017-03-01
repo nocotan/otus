@@ -9,6 +9,12 @@
 - Boost
 - cpp-netlib
 
+```
+sudo apt-get install libboost-dev
+sudo apt-get install libcppnetlib-dev
+sudo apt-get install libssl-dev
+```
+
 ## Compile
 
 ```
