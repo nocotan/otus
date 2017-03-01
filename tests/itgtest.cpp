@@ -23,7 +23,7 @@ int main() {
         cout << req.destination << endl;
         cout << req.body << endl;
         for (auto header : req.headers) {
-            cout << header.name << ":" << header.value MM endl;
+            cout << header.name << ":" << header.value << endl;
         }
         return ots::render_template("test.html");
     });

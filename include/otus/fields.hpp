@@ -98,7 +98,7 @@ namespace ots {
              * fieldvalue getter
              */
             const int get_fieldvalue() const {
-                return this->fieldvalue;
+                return stoi(this->fieldvalue);
             }
     };
 
